@@ -1,68 +1,82 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --background: hsla(257, 67%, 51%, 1);
+    --foreground: 0 0% 100%;
+ 
+    --muted: 265 85% 55%;
+    --muted-foreground: 0 0% 100%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 265 100% 62%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 265 100% 62%;
+ 
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+ 
+    --primary: 341 100% 65%; /* Player 1 pink */
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 35 100% 65%; /* Player 2 yellow */
+    --secondary-foreground: 0 0% 100%;
+ 
+    --accent: 265 85% 55%;
+    --accent-foreground: 0 0% 100%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+ 
+    --ring: 265 100% 62%;
+ 
+    --radius: 1rem;
   }
-  a:hover {
-    color: #747bff;
+}
+
+/* Game specific utility classes */
+@layer components {
+  .game-board {
+    @apply bg-board-white rounded-game p-4 shadow-lg;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .game-slot {
+    @apply w-16 h-16 rounded-full bg-game-purple m-1 transition-all duration-300;
+  }
+
+  .game-piece {
+    @apply w-14 h-14 rounded-full transition-all duration-300;
+  }
+
+  .game-piece-1 {
+    @apply bg-player1;
+  }
+
+  .game-piece-2 {
+    @apply bg-player2;
+  }
+
+  .slot {
+    background-color: #7945FF;
+    width: 34px;
+    height: 34px;
+    border-radius: 45%;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid var(--Black, #000);
+    box-shadow: inset 0 10px 0 #000;
+  }
+
+  .timer-display {
+    @apply player2 text-white rounded-lg px-4 py-2 font-bold;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-game-purple text-white;
   }
 }
