@@ -18,7 +18,7 @@ const Footer = () => {
     <section 
       className={`
         w-full px-4 py-3 rounded-t-lg shadow-lg 
-        flex justify-center items-center mt-4 
+        flex justify-center items-center mt-8 
         transition-colors duration-300 
         ${getBackgroundColor()}
       `}

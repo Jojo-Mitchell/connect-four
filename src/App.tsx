@@ -14,14 +14,14 @@ const App = () => {
 
   if (gameMode === 'menu') {
     return (
-      <div className="min-h-screen bg-indigo-100 p-4 flex items-center justify-center">
+      <div className="min-h-screen bg-game-purple-dark p-4 flex items-center justify-center">
         <MainMenu />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen grid bg-game-purple p-4">
+    <div>
       {/* Navigation */}
       <NavMenu onPauseTimer={() => setIsTimerPaused(true)} />
       <div className="max-w-4xl mx-auto relative">

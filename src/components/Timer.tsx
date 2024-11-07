@@ -53,17 +53,19 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
   };
 
   return (
-    <div 
-      className="w-32 h-32 flex flex-col items-center justify-center relative transition-all duration-300"
-      style={backgroundStyle}
-    >
-      <div className={`text-sm font-medium mb-1 ${getTextColor()}`}>
-        Player {currentPlayer}'s TURN
+    <section className="flex items-center justify-center pb-12">
+      <div 
+        className="w-32 h-32 flex flex-col items-center justify-center absolute transition-all duration-300"
+        style={backgroundStyle}
+      >
+        <div className={`text-sm font-medium mb-1 ${getTextColor()}`}>
+          Player {currentPlayer}'s TURN
+        </div>
+        <div className={`text-2xl font-bold ${timeLeft <= 10 ? 'text-red-500' : getTextColor()}`}>
+          {String(timeLeft).padStart(2, '0')}s
+        </div>
       </div>
-      <div className={`text-2xl font-bold ${timeLeft <= 10 ? 'text-red-500' : getTextColor()}`}>
-        {String(timeLeft).padStart(2, '0')}s
-      </div>
-    </div>
+    </section>
   );
 };
 
