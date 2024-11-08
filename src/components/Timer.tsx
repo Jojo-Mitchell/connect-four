@@ -59,7 +59,7 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
         style={backgroundStyle}
       >
         <div className={`text-sm font-medium mb-1 ${getTextColor()}`}>
-          Player {currentPlayer}'s TURN
+          PLAYER {currentPlayer}'s TURN
         </div>
         <div className={`text-2xl font-bold ${timeLeft <= 10 ? 'text-red-500' : getTextColor()}`}>
           {String(timeLeft).padStart(2, '0')}s

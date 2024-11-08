@@ -13,14 +13,14 @@ const MainMenu = () => {
   };
 
   return (
-    <div className="bg-game-purple p-8 flex flex-col items-center rounded-xl shadow-lg max-w-md w-[480px] border-2 border-black">
+    <div className="bg-game-purple menu-wrapper flex flex-col items-center rounded-xl shadow-lg border-2 border-black">
       <img src={logo} alt="Logo" className="w-auto h-auto mb-8" />
       
-      <div className="card relative flex flex-col justify-center w-[400px]">
-          <button
-            onClick={startGame}
-            className="menu-button bg-player1 text-white rounded-lg hover:border-game-purple-dark "
-          >
+      <div className="card text-left relative flex flex-col justify-center w-[400px]">
+        <button
+          onClick={startGame}
+          className="menu-button bg-player1 text-white rounded-lg hover:border-game-purple-dark "
+        >
           PLAY VS CPU
           <img src={playerVsCpu} alt="Player vs CPU" className="ml-40 inline-block" />
         </button>
@@ -36,7 +36,7 @@ const MainMenu = () => {
           onClick={() => dispatch(setGameMode('rules'))}
           className="w-[400px] mb-2 py-3 bg-white text-black rounded-lg hover:border-game-purple-dark border-black border-2 transition-colors font-semibold text-lg"
         >
-          Game Rules
+          GAME RULES
         </button>
       </div>
     </div>

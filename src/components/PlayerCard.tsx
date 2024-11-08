@@ -33,7 +33,7 @@ const PlayerCard = ({ playerNumber }: PlayerCardProps) => {
     >
       <img src={playerImage} alt={`Player ${playerNumber}`} className="w-16 h-16 mx-auto mb-2" />
       <div className={`text-lg font-bold mb-2 ${getTextColor()}`}>
-        Player {playerNumber}
+        PLAYER {playerNumber}
       </div>
       <div className={`text-3xl text-center font-bold ${getTextColor()}`}>
         {score}

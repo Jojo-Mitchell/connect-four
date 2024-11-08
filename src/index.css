@@ -64,13 +64,23 @@
     width: 400px;
     height: 72px;
     margin-bottom: 8px;
-    padding: 8px auto;
+    /* padding: 8px auto; */
     font-weight: 700;
     font-size: 1.125rem /* 18px */;
     line-height: 1.75rem /* 28px */;
     border-radius: 20px;
     border: 3px solid var(--Black, #000);
     box-shadow: 0px 10px 0px 0px #000;
+  }
+
+  .menu-button:hover {
+    border: 3px solid #7945FF;
+    box-shadow: 0px 10px 0px 0px #7945FF;
+  }
+
+  .menu-wrapper {
+    padding: 48px 40px;
+    justify-content: space-evenly;
   }
 
   .slot {
@@ -92,5 +102,6 @@
 @layer base {
   body {
     @apply bg-game-purple text-white;
+    font-family: "Space Grotesk", serif;
   }
 }
