@@ -7,37 +7,51 @@ import logo from '../assets/logo.svg';
 
 const MainMenu = () => {
   const dispatch = useAppDispatch();
-
+  
   const startGame = () => {
     dispatch(setGameMode('game'));
   };
 
   return (
-    <div className="bg-game-purple menu-wrapper flex flex-col items-center rounded-xl shadow-lg border-2 border-black">
-      <img src={logo} alt="Logo" className="w-auto h-auto mb-8" />
-      
-      <div className="card text-left relative flex flex-col justify-center w-[400px]">
-        <button
-          onClick={startGame}
-          className="menu-button bg-player1 text-white rounded-lg hover:border-game-purple-dark "
-        >
-          PLAY VS CPU
-          <img src={playerVsCpu} alt="Player vs CPU" className="ml-40 inline-block" />
-        </button>
-        <button
-          onClick={startGame}
-          className="menu-button bg-player2 text-black rounded-lg hover:border-game-purple-dark"
-        >
-          PLAY VS PLAYER
-          <img src={playerVsPlayer} alt="Player vs Player" className="inline-block ml-36" />
-        </button>
+    <div className="flex items-center justify-center min-h-screen w-full">
+      {/* Container with responsive widths and positioning */}
+      <div className="bg-game-purple max-sm:bg-inherit relative flex flex-col max-md:justify-center items-center
+        sm:w-[375px] sm:min-h-screen p-12
+        md:w-[480px] md:min-h-0 rounded-default md:border-edge lg:border-edge
+        lg:w-[480px]">
         
-        <button
-          onClick={() => dispatch(setGameMode('rules'))}
-          className="w-[400px] mb-2 py-3 bg-white text-black rounded-lg hover:border-game-purple-dark border-black border-2 transition-colors font-semibold text-lg"
-        >
-          GAME RULES
-        </button>
+        {/* Logo sizing and spacing */}
+        <img 
+          src={logo} 
+          alt="Logo" 
+          className="w-14 h-14 mb-12 logo md:mb-8"
+        />
+
+        {/* Button container */}
+        <div className="w-full max-sm:bg-transparent flex flex-col gap-4 items-center">
+          <button
+            onClick={startGame}
+            className="menu-button bg-player2 text-black transition-all"
+          >
+            <span className="label">PLAY VS PLAYER</span>
+            <img src={playerVsPlayer} alt="Player vs Player" className="h-8" />
+          </button>
+
+          {/* <button
+            onClick={startGame}
+            className="menu-button bg-player1 text-white transition-all"
+          >
+            <span className="label">PLAY VS CPU</span>
+            <img src={playerVsCpu} alt="Player vs CPU" className="h-8" />
+          </button> */}
+
+          <button
+            onClick={() => dispatch(setGameMode('rules'))}
+            className="menu-button bg-white text-black transition-colors"
+          >
+            <span className="label">GAME RULES</span>
+          </button>
+        </div>
       </div>
     </div>
   );
