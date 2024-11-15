@@ -45,6 +45,8 @@ export default {
       borderRadius: {
         'game': '1rem',
         lg: 'var(--radius)',
+        default: "40px",
+        small: "20px",
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
