@@ -25,11 +25,9 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
 
   useEffect(() => {
     if (isGameOver || isPaused) return;
-
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
-          // Time's up - other player wins
           dispatch(makeWinner(currentPlayer === 1 ? 2 : 1));
           clearInterval(timer);
           return 0;
@@ -37,33 +35,57 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
         return prevTime - 1;
       });
     }, 1000);
-
     return () => clearInterval(timer);
   }, [currentPlayer, isGameOver, isPaused, dispatch]);
 
-  const backgroundStyle = {
-    backgroundImage: `url(${currentPlayer === 1 ? redBg : yellowBg})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
-  };
+  // Modified to handle game over state differently
+  const containerStyle = isGameOver
+    ? {
+        backgroundColor: 'white',
+        borderRadius: '20px',
+        border: '3px solid #000',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+      }
+    : {
+        backgroundImage: `url(${currentPlayer === 1 ? redBg : yellowBg})`,
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
+      };
 
-  const getTextColor = () => {
-    return currentPlayer === 1 ? 'text-black' : 'text-white';
+  const handlePlayAgain = () => {
+    // Add your play again logic here
+    console.log('Play Again clicked');
   };
 
   return (
-    <section className="flex items-center justify-center pb-12">
-      <div 
-        className="w-32 h-32 flex flex-col items-center justify-center absolute transition-all duration-300"
-        style={backgroundStyle}
+    <section className="flex items-center relative justify-center mx-auto z-30">
+      <div
+        className="winner flex flex-col items-center absolute justify-center transition-all duration-300"
+        style={containerStyle}
       >
-        <div className={`text-sm font-medium mb-1 ${getTextColor()}`}>
-          PLAYER {currentPlayer}'s TURN
-        </div>
-        <div className={`text-2xl font-bold ${timeLeft <= 10 ? 'text-red-500' : getTextColor()}`}>
-          {String(timeLeft).padStart(2, '0')}s
-        </div>
+        {isGameOver ? (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <p className="flex flex-col text-center text-black text-sm font-medium mb-2">
+              PLAYER {currentPlayer} <span className="block text-5xl">WINS</span>
+            </p>
+            <button
+              onClick={handlePlayAgain}
+              className="bg-game-purple-dark border-player1 text-white text-sm font-bold py-2 px-4 rounded-default hover:bg-game-purple hover:border-player2 transition-colors"
+            >
+              PLAY AGAIN
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className={`text-sm font-medium mb-1 ${currentPlayer === 1 ? 'text-black' : 'text-white'}`}>
+              PLAYER {currentPlayer}'S TURN
+            </div>
+            <div className={`text-3xl font-bold ${timeLeft <= 10 ? 'text-game-purple-dark' : (currentPlayer === 1 ? 'text-black' : 'text-white')}`}>
+              {String(timeLeft).padStart(2, '0')}s
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
