@@ -1,7 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import { useAppSelector } from '../hooks';
 import playerOne from '../assets/player-one.svg';
 import playerTwo from '../assets/player-two.svg';
+import styles from './PlayerCard.module.css';
 
 interface PlayerCardProps {
   playerNumber: 1 | 2;
@@ -20,22 +21,19 @@ const PlayerCard = ({ playerNumber }: PlayerCardProps) => {
   };
 
   const score = playerNumber === 1 ? scores.player1 : scores.player2;
+  const playerClass = playerNumber === 1 ? 'player-1' : 'player-2';
 
   return (
     <div 
-      className={`
-        p-4 rounded-lg shadow-lg 
-        transition-colors duration-300
-        bg-white
-        ${isActive ? 'ring-2 ring-indigo-800' : ''}
-        border-2 border-black
-      `}
-    >
-      <img src={playerImage} alt={`Player ${playerNumber}`} className="w-16 h-16 mx-auto mb-2" />
-      <div className={`text-lg font-bold mb-2 ${getTextColor()}`}>
+      className={`${styles.playercard}`}
+      id={playerClass}>
+      <div className={`${playerClass} emoji`}>
+        <img src={playerImage} alt={`Player ${playerNumber}`} className="icon-locale" />
+      </div>
+      <div className={`text-lg font-bold text-center label ${getTextColor()}`}>
         PLAYER {playerNumber}
       </div>
-      <div className={`text-3xl text-center font-bold ${getTextColor()}`}>
+      <div className={`text-6xl mb-2 max-sm:text-4xl text-center font-bold ${getTextColor()}`}>
         {score}
       </div>
     </div>

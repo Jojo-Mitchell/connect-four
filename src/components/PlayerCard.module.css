@@ -1,0 +1,30 @@
+.playercard {
+    background-color: #FFFFFF;
+    justify-content: center;
+    box-shadow: 0px 10px 0px 0px #000;
+    border: 3px solid var(--Black, #000);
+    border-radius: 20px;
+    min-width: 141px;
+    height: 81px;
+
+
+
+    @media only screen and (min-width: 770px) {
+        width: 142px;
+        height: 160px;
+    }
+
+    @media only screen and (min-width: 640px) and (max-width: 769px) {
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 272px;
+        height: 100px;
+        padding-right: 10px;
+    }
+    
+}
+
+  
