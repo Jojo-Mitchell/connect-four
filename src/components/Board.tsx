@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../hooks';
 import { makeMove } from '../features/gameSlice';
 import Slot from './Slot';
@@ -11,14 +11,19 @@ const Board = () => {
   const winner = useAppSelector(state => state.game.winner);
   const currentPlayer = useAppSelector(state => state.game.currentPlayer);
   const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
-  
+
+  // Reset hovered column when game restarts
+  useEffect(() => {
+    setHoveredColumn(null);
+  }, [board]);
+
   // Handle slot click
   const handleSlotClick = (column: number) => {
     if (!winner) {
       dispatch(makeMove(column));
     }
   };
-  
+
   // Get marker image based on current player
   const getMarkerImage = () => {
     return currentPlayer === 1 ? redMarker : yellowMarker;
@@ -53,17 +58,14 @@ const Board = () => {
             }}
           />
         </div>
-
         {/* Game grid */}
         <div className="board mx-auto grid grid-cols-7 bg-white border-black border-2 mt-0">
-        {/* grid grid-cols-7 gap-0.5 sm:gap-1 p-1 sm:p-2 bg-white rounded-lg border-black border-2 */}
           {board.map((row, rowIndex) => (
             <React.Fragment key={`row-${rowIndex}`}>
               {row.map((cell, colIndex) => (
                 <div
                   key={`cell-${rowIndex}-${colIndex}`}
                   className="relative"
-                  // aspect-square relative
                   onMouseEnter={() => setHoveredColumn(colIndex)}
                   onTouchStart={() => handleTouchColumn(colIndex)}
                 >

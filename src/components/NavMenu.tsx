@@ -61,7 +61,7 @@ const NavMenu = ({ onPauseTimer }: NavMenuProps) => {
 
   return (
     <>
-      <div className="nav-menu">
+      <section className="max-w-4xl mx-auto justify-center relative nav-menu">
         <button
           onClick={handleMenuClick}
           className="px-10 py-2 bg-game-purple-dark rounded-small hover:bg-game-purple transition"
@@ -69,7 +69,11 @@ const NavMenu = ({ onPauseTimer }: NavMenuProps) => {
           MENU
         </button>
         <div className="main-menu-logo mr-10">
-          <img src={logo} alt="Logo" className="w-10 h-10" />
+          <img 
+            src={logo} 
+            alt="Logo" 
+            className="w-14 h-14 mb-16 logo max-sm:w-12 max-sm:h-12"
+          />
         </div>
         <button
           onClick={handleRestart}
@@ -81,7 +85,7 @@ const NavMenu = ({ onPauseTimer }: NavMenuProps) => {
           <RotateCcw size={20} />
           RESTART
         </button>
-      </div>
+      </section>
 
       {/* Menu Modal */}
       {showMenu && (

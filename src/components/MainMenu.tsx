@@ -24,7 +24,7 @@ const MainMenu = () => {
         <img 
           src={logo} 
           alt="Logo" 
-          className="w-14 h-14 mb-12 logo md:mb-8"
+          className="w-14 h-14 mb-16 logo max-sm:w-12 max-sm:h-12"
         />
 
         {/* Button container */}
@@ -34,7 +34,7 @@ const MainMenu = () => {
             className="menu-button bg-player2 text-black transition-all"
           >
             <span className="label">PLAY VS PLAYER</span>
-            <img src={playerVsPlayer} alt="Player vs Player" className="h-8" />
+            <img src={playerVsPlayer} alt="Player vs Player" className="h-8 ml-12" />
           </button>
 
           {/* <button

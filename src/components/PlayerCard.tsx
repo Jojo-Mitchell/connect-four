@@ -30,10 +30,10 @@ const PlayerCard = ({ playerNumber }: PlayerCardProps) => {
       <div className={`${playerClass} emoji`}>
         <img src={playerImage} alt={`Player ${playerNumber}`} className="icon-locale" />
       </div>
-      <div className={`text-lg font-bold text-center label ${getTextColor()}`}>
+      <p className={`text-xl max-sm:text-base font-bold text-center label ${getTextColor()}`}>
         PLAYER {playerNumber}
-      </div>
-      <div className={`text-6xl mb-2 max-sm:text-4xl text-center font-bold ${getTextColor()}`}>
+      </p>
+      <div className={`text-6xl mb-2 min-md:mx-2 max-sm:text-4xl text-center font-bold ${getTextColor()}`}>
         {score}
       </div>
     </div>

@@ -17,7 +17,7 @@ const App = () => {
   switch (gameMode) {
     case 'menu':
       return (
-        <div className="min-h-screen bg-game-purple-dark max-sm:bg-game-purple p-8 flex items-center justify-center max-sm:mt-6">
+        <div className="bg-game-purple-dark max-sm:bg-game-purple flex items-center justify-center">
           <MainMenu />
         </div>
       );
@@ -31,11 +31,11 @@ const App = () => {
 
     case 'game':
       return (
-        <div>
+        <main>
           <NavMenu onPauseTimer={() => setIsTimerPaused(true)} />
-          <div className="max-w-4xl mx-auto justify-center relative">
-            <div className="mt-4 space-y-1">
-              <div className="player-card-wrapper">
+          <section className="">
+            <div className="home">
+              <div className="bg-red-700 player-card-wrapper">
                 <PlayerCard playerNumber={1} score={scores.player1} />
                 <PlayerCard playerNumber={2} score={scores.player2} />
               </div>
@@ -45,15 +45,15 @@ const App = () => {
               <Timer isPaused={isTimerPaused} />
               <Footer />
             </div>
-          </div>
-        </div>
+          </section>
+        </main>
       );
 
     default:
       return (
-        <div className="min-h-screen bg-game-purple-dark max-sm:bg-game-purple p-8 flex items-center justify-center max-sm:mt-6">
+        <main className="min-h-screen bg-game-purple-dark max-sm:bg-game-purple p-8 flex items-center justify-center max-sm:mt-6">
           <MainMenu />
-        </div>
+        </main>
       );
   }
 };

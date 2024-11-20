@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { makeWinner } from '../features/gameSlice';
+import { makeWinner, startNewGame } from '../features/gameSlice';
 import redBg from '../assets/turn-background-red.svg';
 import yellowBg from '../assets/turn-background-yellow.svg';
 
@@ -8,6 +8,7 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
   const [timeLeft, setTimeLeft] = useState(30);
   const currentPlayer = useAppSelector(state => state.game.currentPlayer);
   const isGameOver = useAppSelector(state => state.game.isGameOver);
+  const winner = useAppSelector(state => state.game.winner);
   const dispatch = useAppDispatch();
 
   // Preload images
@@ -25,6 +26,7 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
 
   useEffect(() => {
     if (isGameOver || isPaused) return;
+
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
@@ -35,6 +37,7 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
         return prevTime - 1;
       });
     }, 1000);
+
     return () => clearInterval(timer);
   }, [currentPlayer, isGameOver, isPaused, dispatch]);
 
@@ -54,20 +57,20 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
       };
 
   const handlePlayAgain = () => {
-    // Add your play again logic here
-    console.log('Play Again clicked');
+    dispatch(startNewGame());
+    setTimeLeft(30);
   };
 
   return (
-    <section className="flex items-center relative justify-center mx-auto z-30">
+    <section className="flex items-center relative justify-center m-auto z-30">
       <div
         className="winner flex flex-col items-center absolute justify-center transition-all duration-300"
         style={containerStyle}
       >
         {isGameOver ? (
           <div className="flex flex-col items-center justify-center w-full h-full">
-            <p className="flex flex-col text-center text-black text-sm font-medium mb-2">
-              PLAYER {currentPlayer} <span className="block text-5xl">WINS</span>
+            <p className="flex flex-col text-center text-black text-sm font-medium mb-2 mr-3">
+              PLAYER {winner} <span className="block text-5xl">WINS</span>
             </p>
             <button
               onClick={handlePlayAgain}

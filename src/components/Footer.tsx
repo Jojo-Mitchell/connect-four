@@ -18,12 +18,12 @@ const Footer = () => {
     <section 
       className={`
         w-full h-36 px-4 py-3 relative rounded-t-default shadow-lg 
-        flex justify-center items-center my-3
+        flex justify-center items-center
         transition-colors duration-300 
         ${getBackgroundColor()}
       `}
     >
-      <div className={`mt-7 text-sm transition-colors duration-300 ${getTextColor()}`}>
+      <div className={`mt-20 text-sm transition-colors duration-300 ${getTextColor()}`}>
         Made by Jojo Mitchell with ❤️ | Connect Four
       </div>
     </section>
