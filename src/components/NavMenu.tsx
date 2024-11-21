@@ -61,31 +61,31 @@ const NavMenu = ({ onPauseTimer }: NavMenuProps) => {
 
   return (
     <>
-      <section className="max-w-4xl mx-auto justify-center relative nav-menu">
+      <nav className="container my-4 mx-auto flex items-center justify-evenly">
         <button
           onClick={handleMenuClick}
-          className="px-10 py-2 bg-game-purple-dark rounded-small hover:bg-game-purple transition"
+          className="px-10 py-2 bg-game-purple-dark rounded-small hover:bg-game-purple transition navbar-left"
         >
           MENU
         </button>
-        <div className="main-menu-logo mr-10">
-          <img 
-            src={logo} 
-            alt="Logo" 
-            className="w-14 h-14 mb-16 logo max-sm:w-12 max-sm:h-12"
-          />
-        </div>
+        <img 
+          src={logo} 
+          alt="Logo" 
+          className="w-14 h-14 mb-16 logo max-sm:w-12 max-sm:h-12"
+        />
+        {/* <div className="main-menu-logo mr-10">
+        </div> */}
         <button
           onClick={handleRestart}
           className={`
             flex items-center gap-2 px-4 py-2 bg-game-purple-dark
-            rounded-small hover:opacity-90 transition
+            rounded-small hover:opacity-90 transition navbar-right
           `}
         >
           <RotateCcw size={20} />
           RESTART
         </button>
-      </section>
+      </nav>
 
       {/* Menu Modal */}
       {showMenu && (
