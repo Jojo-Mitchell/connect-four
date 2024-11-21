@@ -36,12 +36,10 @@
     --radius: 1rem;
   }
 }
-/* Game specific utility classes */
+
 @layer components {
   .board {
     border-radius: 40px;
-    /* display: flex;
-    flex-wrap: wrap; */
     min-width: 335px;
     height: 310px;
   }
@@ -62,7 +60,6 @@
     justify-content: space-between;
     align-items: center;
     width: 54px;
-    /* height: 49px; */
   }
   
   .game-board {
@@ -133,8 +130,8 @@
     height: 72px;
     margin-bottom: 8px;
     font-weight: 700;
-    font-size: 1.125rem /* 18px */;
-    line-height: 1.75rem /* 28px */;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
     border-radius: 20px;
     border: 3px solid var(--Black, #000);
     box-shadow: 0px 10px 0px 0px #000;
@@ -221,8 +218,8 @@
     .player-1 {
 
       .icon-locale {
-        top: 24%;
-        left: -50%;
+        top: 35%;
+        left: -90%;
       }
     }
   
@@ -244,7 +241,6 @@
     }
   
     .turn-pic {
-      background-color: red;
       width: 191px;
       height: 150px;
     }
@@ -268,7 +264,6 @@
     }
   
     .player-2 {
-      background-color: lightseagreen;
       .icon-locale {
         position: absolute;
         left: 35px;
@@ -309,7 +304,6 @@
     color: #FFF;
     padding-left: 25px;
     padding-right: 25px;
-    /* background-color: palegreen; */
   }
 
   .main-menu-logo {
@@ -331,11 +325,10 @@
 @media only screen and (min-width: 770px) {
 
   .player-1 {
-    background-color: red;
     .icon-locale {
       position: absolute;
       bottom: 40%;
-      left: 75%;
+      left: 0%;
     }
   }
 
@@ -343,7 +336,7 @@
     .icon-locale {
       position: absolute;
       bottom: 40%;
-      left: 75%;
+      left: 0%;
     }
   }
 
@@ -353,16 +346,11 @@
     justify-content: space-between;
     justify-self: center;
     min-width: 800px;
-    /* width: 920px; */
-    margin: 44px auto 24px;
-    position: relative;
     position: absolute;
     z-index: 14;
-    top: 25%;
-  }
-
-  .spacer {
-    min-width: 605px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
