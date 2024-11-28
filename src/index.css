@@ -1,47 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-@layer base {
-  :root {
-    --background: hsla(257, 67%, 51%, 1);
-    --foreground: 0 0% 100%;
- 
-    --muted: 265 85% 55%;
-    --muted-foreground: 0 0% 100%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 265 100% 62%;
- 
-    --card: 0 0% 100%;
-    --card-foreground: 265 100% 62%;
- 
-    --border: 0 0% 100%;
-    --input: 0 0% 100%;
- 
-    --primary: 341 100% 65%; /* Player 1 pink */
-    --primary-foreground: 0 0% 100%;
- 
-    --secondary: 35 100% 65%; /* Player 2 yellow */
-    --secondary-foreground: 0 0% 100%;
- 
-    --accent: 265 85% 55%;
-    --accent-foreground: 0 0% 100%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
- 
-    --ring: 265 100% 62%;
- 
-    --radius: 1rem;
-  }
-}
 
 @layer components {
   .board {
     border-radius: 40px;
     min-width: 335px;
     height: 310px;
+    @apply border-edge;
   }
   
   .board-wrapper {
@@ -53,7 +19,6 @@
     box-shadow: 0px 10px 0px 0px #000;
     border: 3px solid var(--Black, #000);
   }
-
 
   .emoji {
     display: flex;
@@ -105,12 +70,14 @@
     border-radius: 16px;
     font-size: 24px;
     font-weight: 700;
-    background-color: green;
-    @apply border-edge;
+    border: 3px solid var(--Black, #000);
+    box-shadow: 0px 10px 0px 0px #000;
   }
 
   .menu-button:hover {
     --tw-bg-opacity: 0.9;
+    box-shadow: 0px 10px 0px 0px #5C2DD5;
+    border: 3px solid #5C2DD5;
   }
 
   .menu-button-container {
@@ -157,6 +124,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: inherit;
+    margin-bottom: 42px;
   }
 
   .slot {
@@ -185,6 +153,7 @@
       display: grid;
       align-content: space-evenly;
       justify-items: center;
+      border-radius: 20px;
     }
 
     .counter {
@@ -208,6 +177,15 @@
 
     .main-menu-logo {
       transform: translate(50%, 0%);
+    }
+
+    .menu {
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      align-items: center;
+      justify-content: center;
     }
 
     .nav-menu {
@@ -235,9 +213,10 @@
       display: flex;
       justify-content: space-evenly;
       position: relative;
-      min-width: 325px;
-      margin-bottom: 42px;
-      justify-self: center;
+      width: 330px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 22px;
     }
   
     .turn-pic {
@@ -246,7 +225,7 @@
     }
   }
 
-  @media only screen and (min-width: 640px) and (max-width: 769px) {
+  @media only screen and (min-width: 640px) and (max-width: 1023px) {
     .player-1 {
   
       .label {
@@ -277,11 +256,11 @@
     }
 
     .player-card-wrapper {
-      justify-self: center;
-      margin: 44px auto 24px;
+      margin: auto;
       position: relative;
       max-width: 600px;
       min-width: 580px;
+      padding-bottom: 2rem;
     }
   
     #player-2 {
@@ -294,8 +273,9 @@
   .board {
     width: 632px;
     height: 584px;
-    padding: 16px;
-    gap: 4px;
+    padding: 18px;
+    /* padding: 16px; */
+    gap: 2px;
   }
 
   .nav-menu {
@@ -316,42 +296,32 @@
     width: 64px;
     height: 64px;
   }
+
   .spacer {
     min-width: 5px;
     max-width: 24px;
   }
 }
 
-@media only screen and (min-width: 770px) {
-
-  .player-1 {
-    .icon-locale {
-      position: absolute;
-      bottom: 40%;
-      left: 0%;
-    }
+@media only screen and (min-width: 1023px) {
+  .player-1, .player-2 {
+    margin: auto;
   }
 
-  .player-2 {
-    .icon-locale {
-      position: absolute;
-      bottom: 40%;
-      left: 0%;
-    }
+  .icon-locale {
+    position: absolute;
+    transform: translate(0%, -50%);
   }
 
   .player-card-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    justify-self: center;
-    min-width: 800px;
     position: absolute;
-    z-index: 14;
+    z-index: 0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+  } 
 }
 
 @layer base {

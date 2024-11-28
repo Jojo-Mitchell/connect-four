@@ -7,24 +7,7 @@
     min-width: 141px;
     height: 81px;
 
-
-
-    @media only screen and (min-width: 770px) {
-        width: 142px;
-        height: 160px;
-        margin-left: 12px;
-        margin-right: 12px;
-        /* margin: auto 64px; */
-        /* margin: auto; */
-        /* display: flex; */
-        /* flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 10px;
-        padding-bottom: 10px; */
-    }
-
-    @media only screen and (min-width: 640px) and (max-width: 769px) {
+    @media only screen and (min-width: 640px) and (max-width: 1023px) {
         margin: auto;
         display: flex;
         flex-direction: row;
@@ -34,6 +17,12 @@
         height: 100px;
         padding-right: 10px;
         padding-left: 10px;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        width: 142px;
+        height: 160px;
+        margin: auto 24px;
     }
 }
 

@@ -29,45 +29,38 @@ const Board = () => {
     return currentPlayer === 1 ? redMarker : yellowMarker;
   };
 
-  // Handle touch events for mobile
-  const handleTouchColumn = (colIndex: number) => {
-    setHoveredColumn(colIndex);
-  };
-
   return (
-    <div className="max-w-[600px] w-full mx-auto px-2 sm:px-4">
+    <div className="max-w-[600px] min-md:w-full mx-auto px-2 sm:px-4 sm:pt-2">
       <div
         className="bg-transparent rounded-xl overflow-hidden flex"
         onMouseLeave={() => setHoveredColumn(null)}
       >
         {/* Column marker container */}
-        <div className="grid grid-cols-7 gap-0.5 sm:gap-1 p-1 sm:p-2 h-12 sm:h-16 absolute z-50">
+        <div className="lg:w-[525px] max-md:hidden absolute z-50 h-14 -top-10">
           <img
             src={getMarkerImage()}
             alt={`Player ${currentPlayer} marker`}
             className={`
-              absolute w-8 h-8 sm:w-14 sm:h-14
-              transition-transform duration-200 ease-in-out
+              absolute w-14 h-12 sm:w-14 sm:h-14
+              transition-all duration-500 ease-in-out
               ${hoveredColumn === null ? 'opacity-0' : 'opacity-100'}
+              transform -translate-y-2
             `}
             style={{
-              transform: hoveredColumn === null
-                ? 'translateX(-100%)'
-                : `translateX(${hoveredColumn * (100/7)}%)`,
-              transitionProperty: 'transform, opacity',
+              left: hoveredColumn !== null ? `${(hoveredColumn * (100/7))}%` : '100%',
+              transform: `translateX(30%)`,
             }}
           />
         </div>
         {/* Game grid */}
-        <div className="board mx-auto grid grid-cols-7 bg-white border-black border-2 mt-0">
+        <div className="board w-full grid grid-cols-7 bg-white mt-0">
           {board.map((row, rowIndex) => (
             <React.Fragment key={`row-${rowIndex}`}>
               {row.map((cell, colIndex) => (
                 <div
                   key={`cell-${rowIndex}-${colIndex}`}
-                  className="relative"
+                  className="relative aspect-square"
                   onMouseEnter={() => setHoveredColumn(colIndex)}
-                  onTouchStart={() => handleTouchColumn(colIndex)}
                 >
                   <Slot
                     value={cell}

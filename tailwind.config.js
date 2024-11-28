@@ -64,7 +64,10 @@ export default {
           '50%': { transform: 'translateY(-10%)' },
         }
       },
+      screens: {
+        minlg: { min: '1024px' }
+      }
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [import("tailwindcss-animate")],
 }
