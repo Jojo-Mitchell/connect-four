@@ -1,6 +1,7 @@
 import { useAppDispatch } from '../hooks';
 import { setGameMode } from '../features/gameSlice';
 import iconCheck from '../assets/icon-check.svg';
+import * as React from 'react';
 
 export default function Rules() {
   const dispatch = useAppDispatch();
@@ -8,7 +9,7 @@ export default function Rules() {
   return (
     <section className="flex min-h-screen flex-col items-center mx-auto bg-primary-purple">
       <div className="rule-details text-black my-auto">
-        <div className="group relative flex flex-col rounded-default justify-center mx-auto bg-white w-[480px] h-[537px] max-sm:w-[335px] max-sm:h-[583px] border-edge px-8">
+        <div className="group relative flex flex-col rounded-default justify-center mx-auto bg-white w-[480px] h-[537px] max-sm:w-[335px] max-sm:h-[583px] border-edge hover:border- px-8">
           <h1 className="text-6xl text-center uppercase font-bold mt-20 mb-4">Rules</h1>
           
           <h3 className="heading-small text-left uppercase font-semibold text-game-purple w-[412px]">Objective</h3>
@@ -43,7 +44,7 @@ export default function Rules() {
           
           <button 
             onClick={() => dispatch(setGameMode('menu'))}
-            className="mx-auto hover:border-transparent hover:no-underline hover:shadow-green bg-transparent border-none cursor-pointer"
+            className="mx-auto hover:no-underline hover:shadow-green bg-transparent border-none cursor-pointer"
           >
             <img
               src= {iconCheck}

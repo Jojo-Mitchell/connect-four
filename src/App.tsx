@@ -31,7 +31,7 @@ const App = () => {
 
     case 'game':
       return (
-        <main className="min-h-screen flex flex-col relative max-sm:bg-game-purple">
+        <main className="min-h-screen pb-16 flex flex-col relative max-sm:bg-game-purple">
           <NavMenu onPauseTimer={() => setIsTimerPaused(true)} />
           <section className="flex-1">
             <div className="home relative">
