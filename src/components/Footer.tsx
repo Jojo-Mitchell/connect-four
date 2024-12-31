@@ -1,6 +1,4 @@
-import React from 'react';
 import { useAppSelector } from '../hooks';
-
 
 const Footer = () => {
   const winner = useAppSelector(state => state.game.winner);

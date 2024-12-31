@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAppSelector } from './hooks';
 import MainMenu from './components/MainMenu';
 import NavMenu from './components/NavMenu';

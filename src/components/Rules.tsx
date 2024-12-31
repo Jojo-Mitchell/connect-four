@@ -1,7 +1,6 @@
 import { useAppDispatch } from '../hooks';
 import { setGameMode } from '../features/gameSlice';
 import iconCheck from '../assets/icon-check.svg';
-import * as React from 'react';
 
 export default function Rules() {
   const dispatch = useAppDispatch();

@@ -1,4 +1,3 @@
-import React from 'react';
 import redCounter from '../assets/counter-red-large.svg';
 import yellowCounter from '../assets/counter-yellow-large.svg';
 

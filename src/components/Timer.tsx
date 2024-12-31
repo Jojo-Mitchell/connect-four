@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { makeWinner, startNewGame } from '../features/gameSlice';
 import redBg from '../assets/turn-background-red.svg';
@@ -11,7 +11,6 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
   const winner = useAppSelector(state => state.game.winner);
   const dispatch = useAppDispatch();
 
-  // Preload images
   useEffect(() => {
     const redImage = new Image();
     const yellowImage = new Image();
@@ -41,7 +40,6 @@ const Timer = ({ isPaused }: { isPaused: boolean }) => {
     return () => clearInterval(timer);
   }, [currentPlayer, isGameOver, isPaused, dispatch]);
 
-  // Modified to handle game over state differently
   const containerStyle = isGameOver
     ? {
         backgroundColor: 'white',

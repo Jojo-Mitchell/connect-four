@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export default function ConnectLogo() {
   const logoSize = 52;
   return (
@@ -17,7 +15,6 @@ export default function ConnectLogo() {
           className="logo"
           width={logoSize}
           height={logoSize} />
-
       </div>
     </>
   );

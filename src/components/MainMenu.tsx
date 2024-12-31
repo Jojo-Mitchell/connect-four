@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useAppDispatch } from '../hooks';
 import { setGameMode } from '../features/gameSlice';
 import playerVsPlayer from '../assets/player-vs-player.svg';
