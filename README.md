@@ -56,7 +56,8 @@ This project was built based on a design challenge from [Frontend Mentor](https:
 
 The game will be available at http://localhost:5173
 
-### Building for Production
+## Building for Production
+
 To create a production build:
  ```bash
  npm run build
