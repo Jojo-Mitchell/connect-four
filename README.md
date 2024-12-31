@@ -58,10 +58,9 @@ The game will be available at http://localhost:5173
 
 ### Building for Production
 To create a production build:
-
-    ```
-    npm run build
-    ```
+ ```bash
+ npm run build
+ ```
 
 ### Deployment
 The game is deployed on GitHub Pages. You can play it at: https://jojo-mitchell.github.io/connect-four/
